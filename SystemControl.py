@@ -8,9 +8,9 @@ Kp = 0.4
 Ki = 0.085
 sigma = 0.01
 # 学習率
-h = 0.088
+h = 0.05
 # 隠れ層ノード数
-N = 20
+N = 12
 
 # 入力層から隠れ層への重み
 w1 = [list(rd.uniform(-1.0, 1.0, 4)) for i in range(N)]
@@ -109,15 +109,23 @@ for k in range(0, 5000):
     epk = update(epk)
 
 plt.figure()
+plt.ylabel('cost function J')
+plt.xlabel('sampling number k')
 plt.bar([e for e in range(5000)], costs)
 plt.savefig('costs.png')
 
 plt.figure()
-plt.plot([e for e in range(4900, 5000)], sys_outputs[4900:len(sys_outputs)], label='system output')
-# plt.plot([e for e in range(4900, 5000)], nn_outputs[4900:len(nn_outputs)], label='NN output')
+plt.ylabel('Output')
+plt.xlabel('sampling number k')
+plt.plot([e for e in range(4900, 5000)], sys_outputs[4900:len(sys_outputs)], label='y')
+plt.plot([e for e in range(4900, 5000)], nn_outputs[4900:len(nn_outputs)], label='ynn')
+plt.legend()
 plt.savefig('outputs_4900-5000.png')
 
 plt.figure()
-plt.plot([e for e in range(0, 100)], sys_outputs[0:100], label='system output')
-# plt.plot([e for e in range(0, 100)], nn_outputs[0:100], label='NN output')
+plt.ylabel('Output')
+plt.xlabel('sampling number k')
+plt.plot([e for e in range(0, 100)], sys_outputs[0:100], label='y')
+plt.plot([e for e in range(0, 100)], nn_outputs[0:100], label='ynn')
+plt.legend()
 plt.savefig('outputs_0-100.png')
