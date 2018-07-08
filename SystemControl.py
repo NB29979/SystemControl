@@ -4,8 +4,8 @@ from numpy.random import *
 import matplotlib.pyplot as plt
 
 # 各種パラメータ
-Kp = 0.5
-Ki = 0.1
+Kp = 0.4
+Ki = 0.085
 sigma = 0.01
 # 学習率
 h = 0.088
