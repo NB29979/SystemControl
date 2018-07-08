@@ -4,13 +4,13 @@ from numpy.random import *
 import matplotlib.pyplot as plt
 
 # 各種パラメータ
-Kp = 0.4
-Ki = 0.085
-sigma = 0.01
+Kp = 1.0
+Ki = 0.05
+sigma = 0.1
 # 学習率
 h = 0.05
 # 隠れ層ノード数
-N = 12
+N = 80
 
 # 入力層から隠れ層への重み
 w1 = [list(rd.uniform(-1.0, 1.0, 4)) for i in range(N)]
