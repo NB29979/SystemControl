@@ -6,11 +6,11 @@ import matplotlib.pyplot as plt
 # 各種パラメータ
 Kp = 0.44
 Ki = 0.094
-sigma = 0.01
+sigma = 0.1
 # 学習率
 h = 0.05
 # 隠れ層ノード数
-N = 8
+N = 30
 
 # 入力層から隠れ層への重み
 w1 = [list(rd.uniform(-1.0, 1.0, 5)) for i in range(N)]
