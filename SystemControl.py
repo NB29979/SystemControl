@@ -10,10 +10,10 @@ sigma = 0.01
 # 学習率
 h = 0.05
 # 隠れ層ノード数
-N = 122
+N = 8
 
 # 入力層から隠れ層への重み
-w1 = [list(rd.uniform(-1.0, 1.0, 4)) for i in range(N)]
+w1 = [list(rd.uniform(-1.0, 1.0, 5)) for i in range(N)]
 # 隠れ層から出力層への重み，バイアスが含まれる
 w2 = list(rd.uniform(-1.0, 1.0, (N+1)))
 # 同定誤差
@@ -70,7 +70,7 @@ for k in range(0, 5000):
 
     # NNによる出力ynnkを求める
     # NNの入力ベクトルx
-    x = [yk[1], -0.35*yk[2], 0.5*uk[1], 0.1*uk[2]]
+    x = [1.0, yk[1], yk[2], uk[1], uk[2]]
     v = [0.0 for i in range(N+1)]
     ynnk = 0.0
     for i, w21i in enumerate(w2):
@@ -81,7 +81,7 @@ for k in range(0, 5000):
         ynnk += w21i*v[i]
     nn_outputs.append(ynnk)
 
-    # 同定誤差e(k)
+    # 出力誤差e(k)
     ek = yk[0] - ynnk
     costs.append(calc_cost())
 
