@@ -6,11 +6,11 @@ import matplotlib.pyplot as plt
 # 各種パラメータ
 Kp = 0.44
 Ki = 0.094
-sigma = 0.1
+sigma = 0.01
 # 学習率
 h = 0.05
 # 隠れ層ノード数
-N = 30
+N = 25
 
 # 入力層から隠れ層への重み
 w1 = [list(rd.uniform(-1.0, 1.0, 5)) for i in range(N)]
@@ -100,7 +100,7 @@ for k in range(0, 5000):
     # システムへの入力u(k)
     uk[0] = uk[1] + Kp*d_epk + Ki*epk[0]
 
-    print('step: ' + str(k) + ' r(k): ' + str(r(k)) + ' y(k): ' + str(yk[0]))
+    print('step: ' + str(k) + ' r(k): ' + str(r(k)) + ' y(k): ' + str(yk[0]) + ' ynn(k): ' + str(ynnk))
 
     # 各種値の更新（時刻kの値をシフト）
     yk = update(yk)
